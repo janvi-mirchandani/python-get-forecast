@@ -46,7 +46,7 @@ def get_forecast(city='Pittsburgh'):
     URL = f'https://api.weather.gov/points/{latitude},{longitude}'
     response = requests.get(URL)
     if (response.status_code != 200):
-        raise ForecastUnavailable("Period is empty or the API throws any status code that is not 200.")
+        raise ForecastUnavailable("Period is empty or status code is not 200.")
 
     details = response.json()
     forecast_link = details['properties']['forecast']
@@ -63,9 +63,9 @@ def get_forecast(city='Pittsburgh'):
     period = {"startTime": startTime, "endTime": endTime, "detailedForecast": detailedForecast}
 
     if (len(period) == 0):
-      raise ForecastUnavailable("Period is empty or the API throws any status code that is not 200.")
+        raise ForecastUnavailable("Period is empty or the API throws any status code that is not 200.")
     else:
-      return period
+        return period
 
 
 def main():
