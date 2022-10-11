@@ -10,7 +10,7 @@ class CityNotFoundError(Exception):
 
 
 class ForecastUnavailable(Exception):
-     def __init__(self, msg):
+    def __init__(self, msg):
         super().__init__(msg)
 
 
@@ -55,10 +55,10 @@ def get_forecast(city='Pittsburgh'):
     info = details['properties']['periods']
 
     for i in range(len(info)):
-      if (info[i]["name"] == "Tonight"):
-        startTime = info[i]['startTime']
-        endTime = info[i]['endTime']
-        detailedForecast = info[i]['detailedForecast']
+        if (info[i]["name"] == "Tonight"):
+            startTime = info[i]['startTime']
+            endTime = info[i]['endTime']
+            detailedForecast = info[i]['detailedForecast']
 
     period = {"startTime": startTime, "endTime": endTime, "detailedForecast": detailedForecast}
 
