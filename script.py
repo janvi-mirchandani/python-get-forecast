@@ -54,7 +54,6 @@ def get_forecast( city='Pittsburgh' ):
       print("Latitude and Longitude fields are empty.")
     except ForecastUnavailable:
       print("Period is empty or the API throws any status code that is not 200.")
-    raise NotImplementedError() 
 
 def main():
     period = get_forecast()
