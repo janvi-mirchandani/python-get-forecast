@@ -60,7 +60,9 @@ def get_forecast(city='Pittsburgh'):
             endTime = info[i]['endTime']
             detailedForecast = info[i]['detailedForecast']
 
-    period = {"startTime": startTime, "endTime": endTime, "detailedForecast": detailedForecast}
+    period = {"startTime": startTime, 
+              "endTime": endTime, 
+              "detailedForecast": detailedForecast}
 
     if (len(period) == 0):
         raise ForecastUnavailable("Period is empty or the API throws any status code that is not 200.")
@@ -82,7 +84,7 @@ def main():
     df = df.drop_duplicates()
     df.to_pickle(file)
 
-    #sort repositories
+    '''sort repositories'''
     file = open("README.md", "w")
     file.write('![Status](https://github.com/janvi-mirchandani/python-get-forecast/actions/workflows/build.yml/badge.svg)\n')
     file.write('![Status](https://github.com/janvi-mirchandani/python-get-forecast/actions/workflows/pretty.yml/badge.svg)\n')
