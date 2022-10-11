@@ -21,5 +21,6 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Check code style with pycodestyle
         run: |
+          python -m pip install --upgrade pip
           pip install pycodestyle
           pycodestyle script.py
