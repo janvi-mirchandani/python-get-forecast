@@ -5,8 +5,8 @@ import pandas as pd
 
 
 class CityNotFoundError(Exception):
-  def __init__(self, msg):
-    super().__init__(msg)
+    def __init__(self, msg):
+        super().__init__(msg)
 
 
 class ForecastUnavailable(Exception):
@@ -40,12 +40,12 @@ def get_forecast(city='Pittsburgh'):
     latitude = location.latitude
     longitude = location.longitude
 
-    if(latitude is None or longitude is None):
+    if (latitude is None or longitude is None):
       raise CityNotFoundError("Latitude and Longitude fields are empty.")
 
     URL = f'https://api.weather.gov/points/{latitude},{longitude}'
     response = requests.get(URL)
-    if(response.status_code != 200):
+    if (response.status_code != 200):
       raise ForecastUnavailable("Period is empty or the API throws any status code that is not 200.")
 
     details = response.json()
