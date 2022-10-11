@@ -8,7 +8,7 @@ class CityNotFoundError(Exception):
   def __init__(self, msg):
     super().__init__(msg)
 
-      
+
 class ForecastUnavailable(Exception):
   def __init__(self, msg):
      super().__init__(msg)
@@ -22,12 +22,15 @@ def get_forecast( city='Pittsburgh' ):
     city (string): A valid string
 
     Output:
-    period (dictionary/JSON): a dictionary containing at least, the forecast keys startTime, endTime and detailedForecast.
+    period (dictionary/JSON): a dictionary containing at least, 
+    the forecast keys startTime, endTime and detailedForecast.
 
     Throws:
-    CityNotFoundError if geopy returns empty list or if the latitude longitude fields are empty.
+    CityNotFoundError if geopy returns empty list or if the 
+    latitude longitude fields are empty.
 
-    ForecastUnavailable if the period is empty or the API throws any status code that is not 200
+    ForecastUnavailable if the period is empty or the API 
+    throws any status code that is not 200
 
     Hint:
     * Return the period that is labeled as "Tonight"
