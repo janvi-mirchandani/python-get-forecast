@@ -37,13 +37,13 @@ def get_forecast( city='Pittsburgh' ):
       forecast_link = details['properties']['forecast']
       response = requests.get(forecast_link)
       details = response.json()
-      details = details['properties']['periods']
+      info = details['properties']['periods']
 
-      for i in range(len(details)):
-        if(details[i]["name"] == "Tonight"):
-          startTime = details[i]['startTime']
-          endTime = details[i]['endTime']
-          detailedForecast = details[i]['detailedForecast']
+      for i in range(len(info)):
+        if(info[i]["name"] == "Tonight"):
+          startTime = info[i]['startTime']
+          endTime = info[i]['endTime']
+          detailedForecast = info[i]['detailedForecast']
 
       period = {"startTime" : startTime, "endTime" : endTime, "detailedForecast" : detailedForecast}
       if(len(period) == 0):
