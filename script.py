@@ -20,28 +20,27 @@ def get_forecast( city='Pittsburgh' ):
 
     Hint:
     * Return the period that is labeled as "Tonight"
-    '''
-    try: 
-      geolocator = Nominatim(user_agent="ModernProgramming")
-      location = geolocator.geocode(city)
-      latitude = location.latitude
-      longitude = location.longitude
+    ''' 
+    geolocator = Nominatim(user_agent="ModernProgramming")
+    location = geolocator.geocode(city)
+    latitude = location.latitude
+    longitude = location.longitude
 
-      URL = f'https://api.weather.gov/points/{latitude},{longitude}'
-      response = requests.get(URL)
-      details = response.json()
-      forecast_link = details['properties']['forecast']
-      response = requests.get(forecast_link)
-      details = response.json()
-      info = details['properties']['periods']
+    URL = f'https://api.weather.gov/points/{latitude},{longitude}'
+    response = requests.get(URL)
+    details = response.json()
+    forecast_link = details['properties']['forecast']
+    response = requests.get(forecast_link)
+    details = response.json()
+    info = details['properties']['periods']
 
-      for i in range(len(info)):
-        if(info[i]["name"] == "Tonight"):
-          startTime = info[i]['startTime']
-          endTime = info[i]['endTime']
-          detailedForecast = info[i]['detailedForecast']
+    for i in range(len(info)):
+      if(info[i]["name"] == "Tonight"):
+        startTime = info[i]['startTime']
+        endTime = info[i]['endTime']
+        detailedForecast = info[i]['detailedForecast']
 
-      period = {"startTime" : startTime, "endTime" : endTime, "detailedForecast" : detailedForecast}
+    period = {"startTime" : startTime, "endTime" : endTime, "detailedForecast" : detailedForecast}
     return period
 
 def main():
