@@ -55,14 +55,14 @@ def get_forecast(city='Pittsburgh'):
     info = details['properties']['periods']
 
     for i in range(len(info)):
-      if(info[i]["name"] == "Tonight"):
+      if (info[i]["name"] == "Tonight"):
         startTime = info[i]['startTime']
         endTime = info[i]['endTime']
         detailedForecast = info[i]['detailedForecast']
 
-    period = {"startTime" : startTime, "endTime" : endTime, "detailedForecast" : detailedForecast}
+    period = {"startTime": startTime, "endTime": endTime, "detailedForecast": detailedForecast}
 
-    if(len(period) == 0):
+    if (len(period) == 0):
       raise ForecastUnavailable("Period is empty or the API throws any status code that is not 200.")
     else:
       return period
