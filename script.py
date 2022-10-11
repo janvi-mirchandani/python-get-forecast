@@ -3,6 +3,10 @@ from geopy.geocoders import Nominatim
 import requests
 import pandas as pd
 
+class CustomError(Exception):
+  pass
+
+
 def get_forecast( city='Pittsburgh' ):
     '''
     Returns the nightly's forecast for a given city.
@@ -20,40 +24,33 @@ def get_forecast( city='Pittsburgh' ):
 
     Hint:
     * Return the period that is labeled as "Tonight"
-    '''
-    try: 
-      geolocator = Nominatim(user_agent="ModernProgramming")
-      location = geolocator.geocode(city)
-      latitude = location.latitude
-      longitude = location.longitude
-      if (latitude is None or longitude is None):
-        raise CityNotFoundError
+    ''' 
+    geolocator = Nominatim(user_agent="ModernProgramming")
+    location = geolocator.geocode(city)
+    #latitude = location.latitude
+    #longitude = location.longitude
+    latitude = None
+    longitude = None
 
-      URL = f'https://api.weather.gov/points/{latitude},{longitude}'
-      response = requests.get(URL)
-      if(response.status_code != 200):
-        raise ForecastUnavailable
-      details = response.json()
-      forecast_link = details['properties']['forecast']
-      response = requests.get(forecast_link)
-      details = response.json()
-      info = details['properties']['periods']
+    if(latitude is None or longitude is None):
+      raise CustomError("Latitude and Longitude fields are empty.")
 
-      for i in range(len(info)):
-        if(info[i]["name"] == "Tonight"):
-          startTime = info[i]['startTime']
-          endTime = info[i]['endTime']
-          detailedForecast = info[i]['detailedForecast']
+    URL = f'https://api.weather.gov/points/{latitude},{longitude}'
+    response = requests.get(URL)
+    details = response.json()
+    forecast_link = details['properties']['forecast']
+    response = requests.get(forecast_link)
+    details = response.json()
+    info = details['properties']['periods']
 
-      period = {"startTime" : startTime, "endTime" : endTime, "detailedForecast" : detailedForecast}
-      if(len(period) == 0):
-        raise ForecastUnavailable
-      return period
-        
-    except CityNotFoundError:
-      print("Latitude and Longitude fields are empty.")
-    except ForecastUnavailable:
-      print("Period is empty or the API throws any status code that is not 200.") 
+    for i in range(len(info)):
+      if(info[i]["name"] == "Tonight"):
+        startTime = info[i]['startTime']
+        endTime = info[i]['endTime']
+        detailedForecast = info[i]['detailedForecast']
+
+    period = {"startTime" : startTime, "endTime" : endTime, "detailedForecast" : detailedForecast}
+    return period
 
 def main():
     period = get_forecast()
