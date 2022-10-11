@@ -96,7 +96,8 @@ def main():
     file.write('# Pittsburgh Nightly Forecast\n\n')
 
     file.write(df.to_markdown(tablefmt='github'))
-    file.write('\n\n---\nCopyright © 2022 Pittsburgh Supercomputing Center. All Rights Reserved.')
+    file.write('\n\n---\nCopyright © 2022 Pittsburgh' +
+               'Supercomputing Center. All Rights Reserved.')
     file.close()
 
 
