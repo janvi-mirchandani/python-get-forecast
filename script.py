@@ -3,8 +3,13 @@ from geopy.geocoders import Nominatim
 import requests
 import pandas as pd
 
-class CustomError(Exception):
-  pass
+class CityNotFoundError(Exception):
+  def __init__(self,msg):
+     super().__init__(msg)
+
+class ForecastUnavailable(Exception):
+  def __init__(self,msg):
+     super().__init__(msg)
 
 
 def get_forecast( city='Pittsburgh' ):
@@ -33,10 +38,12 @@ def get_forecast( city='Pittsburgh' ):
     longitude = None
 
     if(latitude is None or longitude is None):
-      raise CustomError("Latitude and Longitude fields are empty.")
+      raise CityNotFoundError("Latitude and Longitude fields are empty.")
 
     URL = f'https://api.weather.gov/points/{latitude},{longitude}'
     response = requests.get(URL)
+    if(response.status_code != 200):
+      raise ForecastUnavailable
     details = response.json()
     forecast_link = details['properties']['forecast']
     response = requests.get(forecast_link)
@@ -50,7 +57,10 @@ def get_forecast( city='Pittsburgh' ):
         detailedForecast = info[i]['detailedForecast']
 
     period = {"startTime" : startTime, "endTime" : endTime, "detailedForecast" : detailedForecast}
-    return period
+    if(len(period) == 0):
+      raise ForecastUnavailable
+    else:
+      return period
 
 def main():
     period = get_forecast()
