@@ -5,12 +5,12 @@ import pandas as pd
 
 
 class CityNotFoundError(Exception):
-  def __init__(self,msg):
-     super().__init__(msg)
+  def __init__(self, msg):
+    super().__init__(msg)
 
       
 class ForecastUnavailable(Exception):
-  def __init__(self,msg):
+  def __init__(self, msg):
      super().__init__(msg)
 
 
