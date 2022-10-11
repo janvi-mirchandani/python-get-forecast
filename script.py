@@ -53,7 +53,7 @@ def get_forecast( city='Pittsburgh' ):
     except CityNotFoundError:
       print("Latitude and Longitude fields are empty.")
     except ForecastUnavailable:
-      print("Period is empty or the API throws any status code that is not 200.")
+      print("Period is empty or the API throws any status code that is not 200.") 
 
 def main():
     period = get_forecast()
