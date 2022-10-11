@@ -60,12 +60,12 @@ def get_forecast(city='Pittsburgh'):
             endTime = info[i]['endTime']
             detailedForecast = info[i]['detailedForecast']
 
-    period = {"startTime": startTime, 
-              "endTime": endTime, 
+    period = {"startTime": startTime,
+              "endTime": endTime,
               "detailedForecast": detailedForecast}
 
     if (len(period) == 0):
-        raise ForecastUnavailable("Period is empty or the API throws any status code that is not 200.")
+        raise ForecastUnavailable("Period is empty or status code is not 200.")
     else:
         return period
 
@@ -80,7 +80,10 @@ def main():
     else:
         df = pd.DataFrame(columns=['Start Date', 'End Date', 'Forecast'])
 
-    df = df.append({'Start Date': period['startTime'], 'End Date': period['endTime'], 'Forecast': period['detailedForecast']}, ignore_index=True)
+    df = df.append({'Start Date': period['startTime'],
+                    'End Date': period['endTime'],
+                    'Forecast': period['detailedForecast']},
+                   ignore_index=True)
     df = df.drop_duplicates()
     df.to_pickle(file)
 
