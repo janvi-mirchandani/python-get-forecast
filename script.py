@@ -14,7 +14,7 @@ class ForecastUnavailable(Exception):
      super().__init__(msg)
 
 
-def get_forecast( city='Pittsburgh' ):
+def get_forecast(city='Pittsburgh'):
     '''
     Returns the nightly's forecast for a given city.
 
@@ -22,19 +22,19 @@ def get_forecast( city='Pittsburgh' ):
     city (string): A valid string
 
     Output:
-    period (dictionary/JSON): a dictionary containing at least, 
+    period (dictionary/JSON): a dictionary containing at least,
     the forecast keys startTime, endTime and detailedForecast.
 
     Throws:
-    CityNotFoundError if geopy returns empty list or if the 
+    CityNotFoundError if geopy returns empty list or if the
     latitude longitude fields are empty.
 
-    ForecastUnavailable if the period is empty or the API 
+    ForecastUnavailable if the period is empty or the API
     throws any status code that is not 200
 
     Hint:
     * Return the period that is labeled as "Tonight"
-    ''' 
+    '''
     geolocator = Nominatim(user_agent="ModernProgramming")
     location = geolocator.geocode(city)
     latitude = location.latitude
