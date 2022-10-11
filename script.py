@@ -21,7 +21,39 @@ def get_forecast( city='Pittsburgh' ):
     Hint:
     * Return the period that is labeled as "Tonight"
     '''
+    try: 
+      geolocator = Nominatim(user_agent="ModernProgramming")
+      location = geolocator.geocode(city)
+      latitude = location.latitude
+      longitude = location.longitude
+      if (latitude is None or longitude is None):
+        raise CityNotFoundError
 
+      URL = f'https://api.weather.gov/points/{latitude},{longitude}'
+      response = requests.get(URL)
+      if(response.status_code != 200):
+        raise ForecastUnavailable
+      details = response.json()
+      forecast_link = details['properties']['forecast']
+      response = requests.get(forecast_link)
+      details = response.json()
+      details = details['properties']['periods']
+
+      for i in range(len(details)):
+        if(details[i]["name"] == "Tonight"):
+          startTime = details[i]['startTime']
+          endTime = details[i]['endTime']
+          detailedForecast = details[i]['detailedForecast']
+
+      period = {"startTime" : startTime, "endTime" : endTime, "detailedForecast" : detailedForecast}
+      if(len(period) == 0):
+        raise ForecastUnavailable
+      return period
+        
+    except CityNotFoundError:
+      print("Latitude and Longitude fields are empty.")
+    except ForecastUnavailable:
+      print("Period is empty or the API throws any status code that is not 200.")
     raise NotImplementedError()
 
 def main():
