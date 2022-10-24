@@ -17,6 +17,7 @@
 | 10 | 2022-10-20T21:00:00-04:00 | 2022-10-21T06:00:00-04:00 | Partly cloudy, with a low around 35. South wind around 3 mph.                                                                                                                                                                                                       |
 | 11 | 2022-10-21T20:00:00-04:00 | 2022-10-22T06:00:00-04:00 | Mostly clear, with a low around 42. South wind around 6 mph.                                                                                                                                                                                                        |
 | 12 | 2022-10-22T21:00:00-04:00 | 2022-10-23T06:00:00-04:00 | Mostly clear, with a low around 42. East wind around 5 mph.                                                                                                                                                                                                         |
+| 13 | 2022-10-23T20:00:00-04:00 | 2022-10-24T06:00:00-04:00 | Mostly clear, with a low around 43. East wind 3 to 7 mph.                                                                                                                                                                                                           |
 
 ---
 Copyright © 2022 PittsburghSupercomputing Center. All Rights Reserved.
