@@ -37,6 +37,7 @@
 | 30 | 2022-11-09T19:00:00-05:00 | 2022-11-10T06:00:00-05:00 | Clear, with a low around 39. Southeast wind around 6 mph.                                                                                                                                                                                                           |
 | 31 | 2022-11-10T19:00:00-05:00 | 2022-11-11T06:00:00-05:00 | Rain after 3am. Mostly cloudy, with a low around 53. Southeast wind 2 to 6 mph. Chance of precipitation is 80%. New rainfall amounts less than a tenth of an inch possible.                                                                                         |
 | 32 | 2022-11-11T19:00:00-05:00 | 2022-11-12T06:00:00-05:00 | Rain before 2am. Cloudy. Low around 44, with temperatures rising to around 50 overnight. Northwest wind 5 to 13 mph, with gusts as high as 23 mph. Chance of precipitation is 100%. New rainfall amounts between three quarters and one inch possible.              |
+| 33 | 2022-11-12T19:00:00-05:00 | 2022-11-13T06:00:00-05:00 | A slight chance of rain before 8pm, then scattered snow showers. Cloudy, with a low around 33. West wind around 7 mph. Chance of precipitation is 30%.                                                                                                              |
 
 ---
 Copyright © 2022 PittsburghSupercomputing Center. All Rights Reserved.
