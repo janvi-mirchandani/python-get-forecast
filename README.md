@@ -46,6 +46,7 @@
 | 39 | 2022-11-18T19:00:00-05:00 | 2022-11-19T06:00:00-05:00 | A slight chance of snow showers before 9pm. Partly cloudy, with a low around 22. West wind around 9 mph. Chance of precipitation is 20%.                                                                                                                            |
 | 40 | 2022-11-19T19:00:00-05:00 | 2022-11-20T06:00:00-05:00 | Mostly cloudy, with a low around 19. Southwest wind 9 to 14 mph, with gusts as high as 26 mph.                                                                                                                                                                      |
 | 41 | 2022-11-20T19:00:00-05:00 | 2022-11-21T06:00:00-05:00 | Clear, with a low around 20. Southwest wind around 6 mph.                                                                                                                                                                                                           |
+| 42 | 2022-11-21T19:00:00-05:00 | 2022-11-22T06:00:00-05:00 | Mostly clear, with a low around 26. Southwest wind 3 to 10 mph.                                                                                                                                                                                                     |
 
 ---
 Copyright © 2022 PittsburghSupercomputing Center. All Rights Reserved.
