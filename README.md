@@ -58,6 +58,7 @@
 | 51 | 2022-11-30T20:00:00-05:00 | 2022-12-01T06:00:00-05:00 | Mostly cloudy, with a low around 25. West wind around 13 mph, with gusts as high as 24 mph.                                                                                                                                                                         |
 | 52 | 2022-12-01T19:00:00-05:00 | 2022-12-02T06:00:00-05:00 | Mostly clear, with a low around 21. Southeast wind around 2 mph.                                                                                                                                                                                                    |
 | 53 | 2022-12-02T19:00:00-05:00 | 2022-12-03T06:00:00-05:00 | Rain showers after 10pm. Mostly cloudy. Low around 43, with temperatures rising to around 49 overnight. South wind 6 to 13 mph, with gusts as high as 32 mph. Chance of precipitation is 100%. New rainfall amounts less than a tenth of an inch possible.          |
+| 54 | 2022-12-03T19:00:00-05:00 | 2022-12-04T06:00:00-05:00 | Mostly cloudy, with a low around 25. West wind 5 to 8 mph.                                                                                                                                                                                                          |
 
 ---
 Copyright © 2022 PittsburghSupercomputing Center. All Rights Reserved.
